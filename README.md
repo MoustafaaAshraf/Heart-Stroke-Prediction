@@ -36,3 +36,24 @@ According to the World Health Organization (WHO) stroke is the 2nd leading cause
 - stroke: 1 if the patient had a stroke or 0 if not
 
 Note: "Unknown" in smoking_status means that the information is unavailable for this patient
+
+## Workflow
+### 1. ETL
+    - Dataset is read through pandas function .read_csv().
+    - Dropping Un-needed columns (id).
+    - Imputing bmi missing values (Missing-at-random) based on existing complete features ['age', 'gender', 'avg_glucose_level'] using RandomForestRegressor.
+    - Changing categorical data in several columns into numerical ordinal values, as integers.  
+    - Returning two dataframes df and df_model. One for Data analytics purpose and one of Predictive Modelling
+### 2. Feature Diagnosis 
+    - In order to perform regression model some diagnostic tests has to be performed checking:
+    - Distribution of values and Outliers, in order to adjust preprocessing to acheive the best fit during training.
+### 3. Questions and Data Analytics
+    - Two questions are asked and answered through visualizations:
+    - Is average Glucose Level and Bmi are determinant of Having a Stroke?
+    - Is Gender a determinant factor for experiencing a Stroke?
+### 4. Preprocessing and Model building Pipeline
+    - According to the Diagnistic process, several features within the dataframe are prone to Outliers.
+    - The preprocessing pipeline is restricted to capping the outliers to the maximum and minimum values in each columns.
+    - The statistical model used for predicting is GradientBoostingClassifier
+### 5. Model Performance Verification
+    - After the model is trained, the performance is evaluated using accuracy and classification report.
