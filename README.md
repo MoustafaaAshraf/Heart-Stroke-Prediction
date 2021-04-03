@@ -37,7 +37,7 @@ According to the World Health Organization (WHO) stroke is the 2nd leading cause
 
 Note: "Unknown" in smoking_status means that the information is unavailable for this patient
 
-## Workflow
+## Workflow BreakDown
 ### 1. ETL
     - Dataset is read through pandas function .read_csv().
     - Dropping Un-needed columns (id).
